@@ -1,0 +1,148 @@
+
+<div class="register-form">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <form [formGroup]="userform" (ngSubmit)="onSubmit()" id="frm">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Regestertion</h2>
+
+                <div class="form-group">
+                  <label class="form-labl">Email</label>
+                  <input
+                    type="text"
+                    id="Email"
+                    formControlName="Email"
+                    class="form-control form-control-sm"
+                    [ngClass]="{ 'is-invalid': submitted && f['Email'].errors }"
+                    (blur)="IscheckUserEmailExis()"
+                  />
+
+                  <div
+                    *ngIf="submitted && f['Email'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['Email'].errors['required']">
+                      {{ ismessagevalidate.Email.required }}
+                    </div>
+                    <div *ngIf="f['Email'].errors['Email']">
+                      {{ ismessagevalidate.Email.validate }}
+                    </div>
+                    <div class="text-danger">
+                      {{ ismessagevalidate.Email.ismuch }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>UserName</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="UserName"
+                    formControlName="UserName"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['UserName'].errors
+                    }"
+                    (blur)="IscheckUserNameExis()"
+                  />
+                  <div
+                    *ngIf="submitted && f['UserName'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['UserName'].errors['required']">
+                      {{ ismessagevalidate.UserName.required }}
+                    </div>
+                    <div *ngIf="f['UserName'].errors['UserName']">
+                      {{ ismessagevalidate.UserName.validate }}
+                    </div>
+                    <div class="text-danger">
+                      {{ ismessagevalidate.UserName.ismuch }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="Password">Password</label>
+                  <input
+                    type="Password"
+                    id="Password"
+                    formControlName="Password"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['Password'].errors
+                    }"
+
+                  />
+
+                  <div
+                    *ngIf="submitted && f['Password'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['Password'].errors['required']">
+                      Password is required
+                    </div>
+                    <div *ngIf="f['Password'].errors['minlength']">
+                      Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="f['Password'].errors['maxlength']">
+                      Username must not exceed 40 characters
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="Password"
+                    >Confirme Password</label
+                  >
+                  <input
+                    type="Password confirme"
+                    id="Passwordconf"
+                    formControlName="Passwordconf"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['Passwordconf'].errors
+                    }"
+
+                  />
+
+                  <div
+                    *ngIf="submitted && f['Passwordconf'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['Passwordconf'].errors['required']">
+                      Password is required
+                    </div>
+                    <div *ngIf="f['Passwordconf'].errors['minlength']">
+                      Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="f['Passwordconf'].errors['maxlength']">
+                      Username must not exceed 40 characters
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-light btn-lg px-5">
+                  Sign
+                </button>
+              </div>
+              <div><strong>name</strong> {{this.userform.get('UserName')?.value}}</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+
+
+  var myElement = document.getElementById();
+  myElement.style.display=="none";
+
+
+    document.getElementById("frm").reset();
+
+</script>
